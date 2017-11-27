@@ -11,8 +11,20 @@ git学习总结
 ### 将代码提交到版本管理库
 > git commit -m "提交信息"
 
-### 查看当前仓库状态，也就是git add以后，尚未git commit的状态
+### 查看当前仓库状态，也就是那些文件修改过，但是看不到修改的内容
 > git status
 
-### 查看自己修改了什么 ， 文件名可以不加 ，不加为全部
+### 查看自己修改内容 ， 文件名可以不加 ，不加为全部
 > git diff <文件名>
+
+### 查看自己的提交历史 ，
+> git log
+### 查看自己的提交历史时如果嫌信息过多
+>git log --pretty=oneline
+### 版本回退HEAD版,HEAD^代表上一个版本 ，HEAD^^代表上上一个版本，HEAD~10 代表前推十个版本
+> git reset --hard HEAD^
+### 版本回退,id版
+> git reset --hard <commit_id>
+
+###查看命令历史
+>git reflog
