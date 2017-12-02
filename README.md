@@ -60,7 +60,10 @@ git学习总结
 
 ### 合并分支
   合并指定分支到当前分支
+  * 普通模式 走的是快速前进 merge之后是直接将 master的指针指向 dev 的提交上的  
 > git merge < 分支名称 >
+  * 禁用 快速前进模式 merge之后master 需要重新commit
+> git merge --no-ff -m "< message >" < 分支名称 >
 
 ### 删除分支
 > git branch -d < 分支名称 >
