@@ -56,7 +56,10 @@ git学习总结
 > git checkout < 分支名称 >
 
 ### 创建新的分支并且切换过去
+* 仅仅在本地的
 > git checkout -b < 分支名称 > 
+* 在本地创建和远程分支对应的分支
+> git checkout -b branch-name origin/branch-name
 
 ### 合并分支
   合并指定分支到当前分支
@@ -66,4 +69,62 @@ git学习总结
 > git merge --no-ff -m "< message >" < 分支名称 >
 
 ### 删除分支
+* 删除的是已经合并的分支，没有的合并过的分支会报错
 > git branch -d < 分支名称 >
+* 删除的是尚未合并的分支
+> git branch -D < 分支名称 >
+
+### 本地储存
+* 当你正在dev分支上修改代码时，其他有个bug需要及时处理，但是你现在的代码只写了一半，提交以后会影响其他同事的工作，就可以使用本地存储。
+> git stash
+* 保存当前的状态，包括新建的文件
+> git stash -u
+* 查看本地存储的列表
+> git stash list
+* 找回本地存储的文件
+> git stash apply < stash@{n} >
+* 找回stash状态中某一个文件的修改 
+> git checkout <stash@{n}> -- <file-path>
+* 找回最后一次存储的文件 ，且删除
+> git stash pop
+* 删除所有的stash
+> git stash clear
+
+### 查看远程分支
+* 简略信息
+> git remote
+* 详细信息
+> git remote -v
+
+### 从远程拉取
+> git pull
+
+### 推送远端
+> git push 
+* 如果是第一次推送，且远端没有这个分支需要执行以下命令
+> git push origin < 分支名称 >
+
+### 将本地分支与远程分支建立联系
+> git branch --set-upstream branch-name origin/branch-name
+
+### 创建tag
+* 不带信息的
+> git tag v1.0
+* 带有信息的
+> git tag -a <tagname> -m "blablabla..."
+### 查看所有tag
+> git tag
+### 对应某次commit创建tag
+> git tag < commit_id >
+### 查看tag具体信息
+> git show < tag_name > 
+### 删除Tag
+* 删除本地tag
+> git tag -d < tag_name >
+* 删除远程tag ，需要先删除本地tag 然后执行以下命令
+> git push origin :refs/tags/< tagname >
+### 推送标签到远程
+* 单个推送
+> git push origin < tag_name >
+* 全部推送
+> git push origin --tags
