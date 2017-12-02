@@ -40,4 +40,27 @@ git学习总结
   2. 当你执行了 git add 的时候， 将你工作区的代码撤销到你最后一次git add 的暂存区里
 > git checkout -- < 文件名称 >
 * 将暂存区的修改撤销掉
->git reset HEAD < file >
+>git reset HEAD < 文件名称 >
+
+###文件删除
+  此操作是从版本库里删除
+> git rm < 文件名称 >
+
+### 查看当前分支
+> git branch
+
+### 创建新分支
+> git branch < 分支名称 >
+
+### 切换新分支 
+> git checkout < 分支名称 >
+
+### 创建新的分支并且切换过去
+> git checkout -b < 分支名称 > 
+
+### 合并分支
+  合并指定分支到当前分支
+> git merge < 分支名称 >
+
+### 删除分支
+> git branch -d < 分支名称 >
